@@ -8,51 +8,20 @@ import {
   TableBody,
   TableContainer,
   Paper,
-  Typography,
   Link as MuiLink,
-  Box,
 } from '@mui/material';
-
-interface PropertyCardProps {
-  id: string;
-  Name: string;
-  Address: string;
-  Tenants: number;
-  Rent: number;
-}
+import { useProperties } from '../hooks/useProperties';
 
 export const PropertyCard = () => {
-  const properties: PropertyCardProps[] = [
-    {
-      id: '1',
-      Name: 'Sunset Villa',
-      Address: '123 Palm St',
-      Tenants: 4,
-      Rent: 1200,
-    },
-    {
-      id: '2',
-      Name: 'Ocean Breeze',
-      Address: '456 Coast Rd',
-      Tenants: 2,
-      Rent: 1500,
-    },
-    {
-      id: '3',
-      Name: 'City Heights',
-      Address: '789 Urban Ave',
-      Tenants: 6,
-      Rent: 2000,
-    },
-  ];
+  const { properties } = useProperties();
 
   return (
-    <TableContainer component={Paper} sx={{ bgcolor: '#f9f9f9', p: 3 }}>
-      <Table className="bg-white">
+    <TableContainer component={Paper} sx={{ bgcolor: '#f2f2f2', p: 3 }}>
+      <Table>
         <TableHead>
           <TableRow>
-            <TableCell></TableCell>
-            <TableCell>Tenants</TableCell>
+            <TableCell>Property</TableCell>
+            <TableCell>tenants</TableCell>
             <TableCell>Rent</TableCell>
             <TableCell>Action</TableCell>
           </TableRow>
@@ -62,16 +31,16 @@ export const PropertyCard = () => {
             <TableRow key={property.id}>
               <TableCell>
                 <div className="flex flex-col">
-                  <a className='py-1'>{property.Name}</a>
-                  <a >{property.Address}</a>
+                  <p>{property.name}</p>
+                  <small>{property.address}</small>
                 </div>
               </TableCell>
-              <TableCell>{property.Tenants}</TableCell>
-              <TableCell>${property.Rent}</TableCell>
+              <TableCell>{property.tenantCount}</TableCell>
+              <TableCell>${property.rent}</TableCell>
               <TableCell>
                 <MuiLink
                   component={Link}
-                  to={`/property/${property.id}`}
+                  to={`/dashboard/property/${property.id}`}
                   color="primary"
                   underline="hover"
                 >
