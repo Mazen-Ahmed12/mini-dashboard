@@ -1,0 +1,133 @@
+{
+    "properties": [
+      {
+        "id": "1",
+        "name": "Sunset Villa",
+        "address": "123 Palm St",
+        "rent": 1200
+      },
+      {
+        "id": "2",
+        "name": "Ocean Breeze",
+        "address": "456 Coast Rd",
+        "rent": 1500
+      },
+      {
+        "id": "3",
+        "name": "City Heights",
+        "address": "789 Urban Ave",
+        "rent": 2000
+      }
+    ],
+    "tenants": [
+      {
+        "id": "1",
+        "name": "Alice Johnson",
+        "leaseStart": "2024-01-01",
+        "EndDate": "2024-12-31",
+        "rent": 1200,
+        "paymentStatus": "Paid",
+        "propertyId": "1"
+      },
+      {
+        "id": "2",
+        "name": "Bob Smith",
+        "leaseStart": "2024-03-15",
+        "EndDate": "2025-03-14",
+        "rent": 1500,
+        "paymentStatus": "Unpaid",
+        "propertyId": "1"
+      },
+      {
+        "id": "3",
+        "name": "Charlie Brown",
+        "leaseStart": "2023-08-01",
+        "EndDate": "2024-07-31",
+        "rent": 1100,
+        "paymentStatus": "Paid",
+        "propertyId": "2"
+      },
+      {
+        "id": "4",
+        "name": "Diana Prince",
+        "leaseStart": "2024-02-01",
+        "EndDate": "2025-01-31",
+        "rent": 2000,
+        "paymentStatus": "Unpaid",
+        "propertyId": "3"
+      },
+      {
+        "id": "5",
+        "name": "Ethan Hunt",
+        "leaseStart": "2023-11-15",
+        "EndDate": "2024-11-14",
+        "rent": 1300,
+        "paymentStatus": "Paid",
+        "propertyId": "2"
+      },
+      {
+        "id": "6",
+        "name": "Fiona Apple",
+        "leaseStart": "2024-05-01",
+        "EndDate": "2025-04-30",
+        "rent": 1400,
+        "paymentStatus": "Unpaid",
+        "propertyId": "1"
+      },
+      {
+        "id": "7",
+        "name": "George Clooney",
+        "leaseStart": "2023-12-01",
+        "EndDate": "2024-11-30",
+        "rent": 1600,
+        "paymentStatus": "Paid",
+        "propertyId": "3"
+      },
+      {
+        "id": "8",
+        "name": "Hannah Montana",
+        "leaseStart": "2024-04-01",
+        "EndDate": "2025-03-31",
+        "rent": 1700,
+        "paymentStatus": "Unpaid",
+        "propertyId": "2"
+      },
+      {
+        "id": "9",
+        "name": "Ian Somerhalder",
+        "leaseStart": "2023-10-15",
+        "EndDate": "2024-10-14",
+        "rent": 1800,
+        "paymentStatus": "Paid",
+        "propertyId": "1"
+      },
+      {
+        "id": "10",
+        "name": "Jessica Alba",
+        "leaseStart": "2024-06-01",
+        "EndDate": "2025-05-31",
+        "rent": 1900,
+        "paymentStatus": "Unpaid",
+        "propertyId": "3"
+      },
+      {
+        "id": "11",
+        "name": "Kevin Spacey",
+        "leaseStart": "2024-07-01",
+        "EndDate": "2025-06-30",
+        "rent": 2000,
+        "paymentStatus": "Paid",
+        "propertyId": "2"
+      },
+      {
+        "id": "12",
+        "name": "Liam Neeson",
+        "leaseStart": "2024-08-01",
+        "EndDate": "2025-07-31",
+        "rent": 2100,
+        "paymentStatus": "Unpaid",
+        "propertyId": "1"
+      }
+    ]
+  }
+  
