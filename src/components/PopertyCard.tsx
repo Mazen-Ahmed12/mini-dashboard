@@ -47,38 +47,41 @@ export const PropertyCard = () => {
   ];
 
   return (
-      <TableContainer component={Paper} sx={{ bgcolor: '#f9f9f9',p: 3 }}>
-        <Table className='bg-white'>
-          <TableHead>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Address</TableCell>
-              <TableCell>Tenants</TableCell>
-              <TableCell>Rent</TableCell>
-              <TableCell>Action</TableCell>
+    <TableContainer component={Paper} sx={{ bgcolor: '#f9f9f9', p: 3 }}>
+      <Table className="bg-white">
+        <TableHead>
+          <TableRow>
+            <TableCell></TableCell>
+            <TableCell>Tenants</TableCell>
+            <TableCell>Rent</TableCell>
+            <TableCell>Action</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {properties.map((property) => (
+            <TableRow key={property.id}>
+              <TableCell>
+                <div className="flex flex-col">
+                  <a className='py-1'>{property.Name}</a>
+                  <a >{property.Address}</a>
+                </div>
+              </TableCell>
+              <TableCell>{property.Tenants}</TableCell>
+              <TableCell>${property.Rent}</TableCell>
+              <TableCell>
+                <MuiLink
+                  component={Link}
+                  to={`/property/${property.id}`}
+                  color="primary"
+                  underline="hover"
+                >
+                  View tenants
+                </MuiLink>
+              </TableCell>
             </TableRow>
-          </TableHead>
-          <TableBody>
-            {properties.map((property) => (
-              <TableRow key={property.id}>
-                <TableCell>{property.Name}</TableCell>
-                <TableCell>{property.Address}</TableCell>
-                <TableCell>{property.Tenants}</TableCell>
-                <TableCell>${property.Rent}</TableCell>
-                <TableCell>
-                  <MuiLink
-                    component={Link}
-                    to={`/property/${property.id}`}
-                    color="primary"
-                    underline="hover"
-                  >
-                    View tenants
-                  </MuiLink>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
