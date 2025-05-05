@@ -9,11 +9,31 @@ import {
   TableContainer,
   Paper,
   Link as MuiLink,
+  CircularProgress, 
+  Typography,       
 } from '@mui/material';
 import { useProperties } from '../hooks/useProperties';
 
 export const PropertyCard = () => {
-  const { properties } = useProperties();
+  const { properties, loading, error } = useProperties();
+
+  if (loading) {
+    return (
+      <TableContainer component={Paper} sx={{ bgcolor: '#000', p: 3 }}>
+        <CircularProgress sx={{ display: 'block', margin: 'auto' }} />
+      </TableContainer>
+    );
+  }
+
+  if (error) {
+    return (
+      <TableContainer component={Paper} sx={{ bgcolor: '#f2f2f2', p: 3 }}>
+        <Typography color="error" align="center">
+          {error}
+        </Typography>
+      </TableContainer>
+    );
+  }
 
   return (
     <TableContainer component={Paper} sx={{ bgcolor: '#f2f2f2', p: 3 }}>
@@ -21,7 +41,7 @@ export const PropertyCard = () => {
         <TableHead>
           <TableRow>
             <TableCell>Property</TableCell>
-            <TableCell>tenants</TableCell>
+            <TableCell>Tenants</TableCell>
             <TableCell>Rent</TableCell>
             <TableCell>Action</TableCell>
           </TableRow>
