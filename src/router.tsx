@@ -14,6 +14,7 @@ export const router = createBrowserRouter([
     element: <Layout/>,
     children: [
       { path: "property", element: <Dashboard /> },
+      { path: "property/:id", element: <Tenants /> },
       { path: "tenant", element: <Tenants /> },
     ],
   },

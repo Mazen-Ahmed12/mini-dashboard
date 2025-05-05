@@ -1,5 +1,5 @@
 
-import { PropertyCard } from '../components/PopertyCard'
+import { PropertyCard } from '../features/PopertyCard'
 
 export const Dashboard = () => {
   return <PropertyCard /> 
