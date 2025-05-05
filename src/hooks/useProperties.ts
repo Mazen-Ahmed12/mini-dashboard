@@ -2,21 +2,24 @@ import { useEffect, useState } from 'react';
 import { fetchProperties, fetchTenantsByProperty } from '../services/api';
 
 export const useProperties = () => {
-  const [properties, setProperties] = useState([]);
-  const [tenants, setTenants] = useState([]);
+  const [properties, setProperties] = useState<any[]>([]);
+  const [tenants, setTenants] = useState<any[]>([]);
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState<string | null>(null); 
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       setError(null); 
       try {
-        const [fetchedProperties, fetchedTenants] = await Promise.all([
-          fetchProperties(),
-          fetchTenantsByProperty(""),
-        ]);
+        const fetchedProperties = await fetchProperties();
         setProperties(fetchedProperties);
-        setTenants(fetchedTenants);
+        
+        const tenantsData = await Promise.all(fetchedProperties.map((property: any) => 
+          fetchTenantsByProperty(property.id)
+        ));
+
+        setTenants(tenantsData.flat());
       } catch (err) {
         setError('Failed to fetch data'); 
         console.error('Error fetching data:', err);

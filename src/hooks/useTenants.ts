@@ -13,25 +13,28 @@ export interface Tenant {
 
 export const useTenants = (propertyId: string | undefined) => {
   const [tenants, setTenants] = useState<Tenant[]>([]);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      setError(null); 
+      setError(null);
       try {
-        const data = await fetchTenantsByProperty(propertyId || "");
+        const data = propertyId
+          ? await fetchTenantsByProperty(propertyId) 
+          : await fetchTenantsByProperty('');
         setTenants(data);
       } catch (err) {
-        setError('Failed to fetch tenants'); 
+        setError('Failed to fetch tenants');
         console.error('Error fetching tenants:', err);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
     fetchData();
   }, [propertyId]);
 
-  return { tenants, loading, error }; 
+  return { tenants, loading, error };
 };
